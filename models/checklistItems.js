@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 ChecklistItems = new Mongo.Collection('checklistItems');
 
 ChecklistItems.attachSchema(new SimpleSchema({
@@ -6,7 +7,6 @@ ChecklistItems.attachSchema(new SimpleSchema({
   },
   sort: {
     type: Number,
-    decimal: true,
   },
   isFinished: {
     type: Boolean,

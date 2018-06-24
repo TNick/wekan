@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 CardComments = new Mongo.Collection('card_comments');
 
 CardComments.attachSchema(new SimpleSchema({

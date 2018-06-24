@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 // Sandstorm context is detected using the METEOR_SETTINGS environment variable
 // in the package definition.
 const isSandstorm = Meteor.settings && Meteor.settings.public &&

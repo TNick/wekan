@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 Integrations = new Mongo.Collection('integrations');
 
 Integrations.attachSchema(new SimpleSchema({

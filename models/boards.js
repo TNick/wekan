@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 Boards = new Mongo.Collection('boards');
 
 Boards.attachSchema(new SimpleSchema({

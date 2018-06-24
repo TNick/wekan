@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 Lists = new Mongo.Collection('lists');
 
 Lists.attachSchema(new SimpleSchema({
@@ -27,7 +28,6 @@ Lists.attachSchema(new SimpleSchema({
   },
   sort: {
     type: Number,
-    decimal: true,
     // XXX We should probably provide a default
     optional: true,
   },
@@ -47,8 +47,7 @@ Lists.attachSchema(new SimpleSchema({
     optional: true,
   },
   'wipLimit.value': {
-    type: Number,
-    decimal: false,
+    type: SimpleSchema.Integer,
     defaultValue: 1,
   },
   'wipLimit.enabled': {

@@ -1,7 +1,8 @@
+import SimpleSchema from 'simpl-schema';
 const passwordField = AccountsTemplates.removeField('password');
 const emailField = AccountsTemplates.removeField('email');
 
-AccountsTemplates.addFields([{
+const ss = new SimpleSchema([{
   _id: 'username',
   type: 'text',
   displayName: 'username',
@@ -15,6 +16,8 @@ AccountsTemplates.addFields([{
   minLength: 6,
   template: 'invitationCode',
 }]);
+
+AccountsTemplates.addFields(ss);
 
 AccountsTemplates.configure({
   defaultLayout: 'userFormsLayout',

@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 CustomFields = new Mongo.Collection('customFields');
 
 CustomFields.attachSchema(new SimpleSchema({

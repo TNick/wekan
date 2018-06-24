@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 Settings = new Mongo.Collection('settings');
 
 Settings.attachSchema(new SimpleSchema({

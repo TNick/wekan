@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 Swimlanes = new Mongo.Collection('swimlanes');
 
 Swimlanes.attachSchema(new SimpleSchema({
@@ -27,7 +28,6 @@ Swimlanes.attachSchema(new SimpleSchema({
   },
   sort: {
     type: Number,
-    decimal: true,
     // XXX We should probably provide a default
     optional: true,
   },

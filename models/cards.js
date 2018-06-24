@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 Cards = new Mongo.Collection('cards');
 
 // XXX To improve pub/sub performances a card document should include a
@@ -105,7 +106,6 @@ Cards.attachSchema(new SimpleSchema({
   },
   spentTime: {
     type: Number,
-    decimal: true,
     optional: true,
   },
   isOvertime: {
@@ -125,11 +125,9 @@ Cards.attachSchema(new SimpleSchema({
   },
   sort: {
     type: Number,
-    decimal: true,
   },
   subtaskSort: {
     type: Number,
-    decimal: true,
     defaultValue: -1,
     optional: true,
   },

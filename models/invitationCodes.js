@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 InvitationCodes = new Mongo.Collection('invitation_codes');
 
 InvitationCodes.attachSchema(new SimpleSchema({

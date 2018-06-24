@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema';
 AccountSettings = new Mongo.Collection('accountSettings');
 
 AccountSettings.attachSchema(new SimpleSchema({
@@ -10,7 +11,6 @@ AccountSettings.attachSchema(new SimpleSchema({
   },
   sort: {
     type: Number,
-    decimal: true,
   },
 }));
 
