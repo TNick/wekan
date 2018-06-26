@@ -161,6 +161,22 @@ Boards.attachSchema(new SimpleSchema({
     optional: true,
     defaultValue: null,
   },
+  allowsSubtasks: {
+    type: Boolean,
+    defaultValue: true,
+  },
+  presentParentTask: {
+    type: String,
+    allowedValues: [
+      'prefix-with-full-path',
+      'prefix-with-parent',
+      'subtext-with-full-path',
+      'subtext-with-parent',
+      'no-parent',
+    ],
+    optional: true,
+    defaultValue: 'no-parent',
+  },
 }));
 
 
@@ -297,7 +313,7 @@ Boards.helpers({
   // A board alwasy has another board where it deposits subtasks of thasks
   // that belong to itself.
   getDefaultSubtasksBoardId() {
-    if (this.subtasksDefaultBoardId === null) {
+    if ((this.subtasksDefaultBoardId === null) || (this.subtasksDefaultBoardId === undefined)) {
       this.subtasksDefaultBoardId = Boards.insert({
         title: `^${this.title}^`,
         permission: this.permission,
@@ -322,7 +338,7 @@ Boards.helpers({
   },
 
   getDefaultSubtasksListId() {
-    if (this.subtasksDefaultListId === null) {
+    if ((this.subtasksDefaultListId === null) || (this.subtasksDefaultListId === undefined)) {
       this.subtasksDefaultListId = Lists.insert({
         title: TAPi18n.__('queue'),
         boardId: this._id,
@@ -336,6 +352,18 @@ Boards.helpers({
 
   getDefaultSubtasksList() {
     return Lists.findOne(this.getDefaultSubtasksListId());
+  },
+
+  getDefaultSwimline() {
+    let result = Swimlanes.findOne({boardId: this._id});
+    if (result === undefined) {
+      Swimlanes.insert({
+        title: TAPi18n.__('default'),
+        boardId: this._id,
+      });
+      result = Swimlanes.findOne({boardId: this._id});
+    }
+    return result;
   },
 });
 
@@ -460,6 +488,22 @@ Boards.mutations({
         [`members.${memberIndex}.isCommentOnly`]: isCommentOnly,
       },
     };
+  },
+
+  setAllowsSubtasks(allowsSubtasks) {
+    return { $set: { allowsSubtasks } };
+  },
+
+  setSubtasksDefaultBoardId(subtasksDefaultBoardId) {
+    return { $set: { subtasksDefaultBoardId } };
+  },
+
+  setSubtasksDefaultListId(subtasksDefaultListId) {
+    return { $set: { subtasksDefaultListId } };
+  },
+
+  setPresentParentTask(presentParentTask) {
+    return { $set: { presentParentTask } };
   },
 });
 
