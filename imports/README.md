@@ -22,6 +22,12 @@ api
 This is where the public API is hosted. It includes models for
 our collections.
 
+checks
+------
+
+This is where we store tests that don't go along with modules.
+These are mostly integration tests (full app).
+
 others
 ------
 
