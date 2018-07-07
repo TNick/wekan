@@ -4,12 +4,25 @@
   "description": "The open-source Trello-like kanban",
   "private": true,
   "scripts": {
+    "pretest": "npm run --silent lint",
+    "test-chrome": "cross-env TEST_BROWSER_DRIVER=chrome meteor test --once --driver-package meteortesting:mocha --port 3011",
+    "test-app-chrome": "cross-env TEST_BROWSER_DRIVER=chrome meteor test --full-app --once --driver-package meteortesting:mocha --port 3021",
+    "test-phantom": "cross-env TEST_BROWSER_DRIVER=phantomjs meteor test --once --driver-package meteortesting:mocha --port 3031",
+    "test-app-phantom": "cross-env TEST_BROWSER_DRIVER=phantomjs meteor test --full-app --once --driver-package meteortesting:mocha --port 3041",
+    "test-watch": "cross-env TEST_BROWSER_DRIVER=phantomjs TEST_WATCH=1 meteor test --driver-package meteortesting:mocha --port 3051",
+    "test-app-watch": "cross-env TEST_BROWSER_DRIVER=phantomjs TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha --port 3061",
+    "test-watch-browser": "cross-env TEST_WATCH=1 meteor test --driver-package meteortesting:mocha --port 3071",
+    "test-app-watch-browser": "cross-env TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha --port 3081",
+    "dtest-chrome": "cross-env TEST_BROWSER_DRIVER=chrome meteor test --once --driver-package meteortesting:mocha --port 3015 --debug-port 3019",
+    "dtest-app-chrome": "cross-env TEST_BROWSER_DRIVER=chrome meteor test --full-app --once --driver-package meteortesting:mocha --port 3025 --debug-port 3029",
+    "dtest-phantom": "cross-env TEST_BROWSER_DRIVER=phantomjs meteor test --once --driver-package meteortesting:mocha --port 3035 --debug-port 3039",
+    "dtest-app-phantom": "cross-env TEST_BROWSER_DRIVER=phantomjs meteor test --full-app --once --driver-package meteortesting:mocha --port 3045 --debug-port 3049",
+    "dtest-watch": "cross-env TEST_BROWSER_DRIVER=phantomjs TEST_WATCH=1 meteor test --driver-package meteortesting:mocha --port 3055 --debug-port 3059",
+    "dtest-app-watch": "cross-env TEST_BROWSER_DRIVER=phantomjs TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha --port 3065 --debug-port 3069",
+    "dtest-watch-browser": "cross-env TEST_WATCH=1 meteor test --driver-package meteortesting:mocha --port 3075 --debug-port 3079",
+    "dtest-app-watch-browser": "cross-env TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha --port 3085 --debug-port 3089",
     "lint": "eslint --ignore-pattern 'packages/*' .",
-    "test": "npm run --silent lint",
-    "tmocha": "meteor test --port 3011 --driver-package practicalmeteor:mocha",
-    "tfull": "meteor test --port 3021 --full-app --driver-package practicalmeteor:mocha",
-    "tdmocha": "meteor test --port 3031 --debug-port 3035 --driver-package practicalmeteor:mocha",
-    "tdfull": "meteor test --port 3041 --full-app --debug-port 3045 --driver-package practicalmeteor:mocha"
+    "start": "meteor run"
   },
   "eslintConfig": {
     "extends": "@meteorjs/eslint-config-meteor"
@@ -24,14 +37,21 @@
   },
   "homepage": "https://wekan.github.io",
   "devDependencies": {
+    "chromedriver": "^2.40.0",
+    "cross-env": "^5.2.0",
     "eslint": "^4.19.1",
-    "fibers": "^2.0.2"
+    "nightmare": "^3.0.1",
+    "phantomjs-prebuilt": "^2.1.16",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "sinon": "^6.1.2"
   },
   "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.52",
     "babel-runtime": "^6.26.0",
     "bcrypt": "^2.0.1",
     "bson-ext": "^2.0.0",
     "es6-promise": "^4.2.4",
+    "fibers": "^2.0.2",
     "meteor-node-stubs": "^0.4.1",
     "os": "^0.1.1",
     "xss": "^0.3.8"

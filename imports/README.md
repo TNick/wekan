@@ -28,6 +28,16 @@ checks
 This is where we store tests that don't go along with modules.
 These are mostly integration tests (full app).
 
+startup
+-------
+
+Code that is loaded by main.js in server or client and runs immediately.
+
+ui
+--
+
+All user interface components for the webapp.
+
 others
 ------
 

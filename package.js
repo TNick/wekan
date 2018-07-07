@@ -9,12 +9,13 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.6.0.1');
   api.use('ecmascript');
-  api.mainModule('wekan.js');
+  api.mainModule('server/main.js', 'server');
+  api.mainModule('client/main.js', 'client');
 });
 
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
   api.use('wekan:wekan');
-  api.mainModule('wekan-tests.js');
+  api.mainModule('imports/api/checks/standalone.app-test.js');
 });
