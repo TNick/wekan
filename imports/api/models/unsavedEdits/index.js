@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
@@ -25,3 +26,10 @@ UnsavedEditCollection.attachSchema(new SimpleSchema({
     },
   },
 }));
+
+
+if (Meteor.isServer) {
+  Meteor.startup(() => {
+    UnsavedEditCollection._collection._ensureIndex({ userId: 1 });
+  });
+}
