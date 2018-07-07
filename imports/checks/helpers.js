@@ -52,10 +52,17 @@ export const printOwnProperties = (obj) => {
 /**
  * Function to clean the database from either cleint or server.
  */
-export const wipeDatabase = () => {
+export const wipeDatabase = (done) => {
   if (Meteor.isClient) {
-    Meteor.call('test.resetDatabase');
+    Meteor.call('test.resetDatabase', (error, result) => {
+      if (error) {
+        Meteor._debug('Failed to reset the database: ', error);
+      }
+      done();
+    });
   } else {
-    resetDatabase();
+    resetDatabase(null, () => {
+      done();
+    });
   }
 };
