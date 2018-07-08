@@ -1,7 +1,23 @@
-// Sandstorm context is detected using the METEOR_SETTINGS environment variable
-// in the package definition.
-const isSandstorm = Meteor.settings && Meteor.settings.public &&
-                    Meteor.settings.public.sandstorm;
+import { Meteor } from 'meteor/meteor';
+import { Tracker } from 'meteor/tracker';
+import { Blaze } from 'meteor/blaze';
+import { check } from 'meteor/check';
+import { Accounts } from 'meteor/accounts-base';
+import { Picker } from 'meteor/meteorhacks:picker';
+import { _ } from 'meteor/underscore';
+import { FlowRouter } from 'meteor/kadira:flow-router';
+import { DocHead } from 'meteor/kadira:dochead';
+import { SubsManager } from 'meteor/meteorhacks:subs-manager';
+
+import { isSandstorm } from '/imports/config/appConfig';
+import { Boards } from '/imports/api/models/boards';
+import { Users } from '/imports/api/models/users';
+import { CardComments } from '/imports/api/models/cardComments';
+import { Cards } from '/imports/api/models/cards';
+import { Swimlanes } from '/imports/api/models/swimlanes';
+import { Activities } from '/imports/api/models/activities';
+import { Migrations } from '/imports/api/startup/server/migrations';
+
 
 // In sandstorm we only have one board per sandstorm instance. Since we want to
 // keep most of our code unchanged, we simply hard-code a board `_id` and

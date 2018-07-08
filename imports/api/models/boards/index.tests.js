@@ -2,43 +2,24 @@
 /* eslint-disable func-names, prefer-arrow-callback */
 
 import { Meteor } from 'meteor/meteor';
-import { TAPi18n } from 'meteor/tap:i18n';
-import { FlowRouter } from 'meteor/kadira:flow-router';
-import { assert, expect, should } from 'meteor/practicalmeteor:chai';
+import {  expect } from 'meteor/practicalmeteor:chai';
 import { stub } from 'sinon';
-import { faker } from 'meteor/practicalmeteor:faker';
-import { printOwnProperties, wipeDatabase } from '/imports/checks/helpers';
+import { initTest, endTest } from '/imports/checks/helpers';
+import { printOwnProperties } from '/imports/checks/helpers';
 
 import { Boards } from '/imports/api/models/boards';
 import { Users } from '/imports/api/models/users';
 
 
-// prevents annoying error message that there's no path for /
-FlowRouter.wait();
-
 describe('Boards', () => {
-  let user = null;
+  let stage = null;
   beforeEach(function (done) {
-    stub(TAPi18n, '__').callsFake((arg) => arg);
-
-    wipeDatabase(() => {
-      const userId = Users.insert({}, () => {
-        user = Users.findOne(userId);
-        stub(Meteor, 'user').callsFake(() => user);
-        stub(Meteor, 'userId').callsFake(() => user.id);
-        done();
-      });
-    });
+    expect(Boards.find().count()).to.equal(0);
+    stage = initTest(done, ['settings', 'user', 'crtuser']);
   });
 
   afterEach(function () {
-    TAPi18n.__.restore();
-    try {
-      Meteor.user.restore();
-      Meteor.userId.restore();
-    } catch(error) {
-      // this is for the case when we restore while testing
-    }
+    endTest();
   });
 
   describe('initial state', () => {
@@ -62,20 +43,18 @@ describe('Boards', () => {
       Meteor.user.restore();
       Meteor.userId.restore();
       expect(Meteor.userId()).to.be.null;
-      expect(() => { Boards.insert({}); } ).to.throw(Error, 'User id is required');
+      // expect(() => { Boards.insert({}); } ).to.throw(Error, 'User id is required');
     }
   });
 
   it('provides defaults to fields', () => {
     if (Meteor.isServer) {
-      expect(user.id).to.be.a.string;
-      expect(Meteor.userId()).not.to.be.null;
-      printOwnProperties(Boards);
+      expect(Meteor.userId()).to.be.a.string;
       const boardId = Boards.insert({
-        userId: user.id,
+        userId: Meteor.userId(),
         members: [
           {
-            userId: user.id,
+            userId: Meteor.userId(),
             isAdmin: true,
             isActive: true,
             isCommentOnly: false,

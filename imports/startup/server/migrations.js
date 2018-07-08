@@ -1,3 +1,16 @@
+import { Migrations } from 'meteor/idmontie:migrations';
+import { _ } from 'meteor/underscore';
+
+import { Boards } from '/imports/api/models/boards';
+import { Users } from '/imports/api/models/users';
+import { Cards } from '/imports/api/models/cards';
+import { Attachments } from '/imports/api/models/attachments';
+import { Checklists } from '/imports/api/models/checklists';
+import { ChecklistItems } from '/imports/api/models/checklistItems';
+import { Activities } from '/imports/api/models/activities';
+import { Swimlanes } from '/imports/api/models/swimlanes';
+
+
 // Anytime you change the schema of one of the collection in a non-backward
 // compatible way you have to write a migration in this file using the following
 // API:
@@ -6,9 +19,6 @@
 
 // Note that we have extra migrations defined in `sandstorm.js` that are
 // exclusive to Sandstorm and shouldn’t be executed in the general case.
-// XXX I guess if we had ES6 modules we could
-// `import { isSandstorm } from sandstorm.js` and define the migration here as
-// well, but for now I want to avoid definied too many globals.
 
 // In the context of migration functions we don't want to validate database
 // mutation queries against the current (ie, latest) collection schema. Doing

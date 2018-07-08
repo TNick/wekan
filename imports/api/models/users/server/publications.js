@@ -1,3 +1,9 @@
+import { Meteor } from 'meteor/meteor';
+import { check, Match } from 'meteor/check';
+
+import { Users } from '../schema';
+
+
 Meteor.publish('people', function(limit) {
   check(limit, Number);
 
