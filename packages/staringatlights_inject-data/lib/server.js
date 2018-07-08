@@ -2,7 +2,6 @@ import { _ } from 'meteor/underscore'
 import { Meteor } from 'meteor/meteor'
 import { InjectData } from './namespace'
 import { WebApp, WebAppInternals } from 'meteor/webapp'
-import { Random } from 'meteor/random'
 
 const Env = new Meteor.EnvironmentVariable()
 
