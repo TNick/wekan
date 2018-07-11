@@ -8,6 +8,7 @@ import './i18n';
 import './blazeHelpers';
 import './gecko-fix';
 import './presence';
+import './reactiveTabs';
 import '/imports/api/statistics';
 
 
