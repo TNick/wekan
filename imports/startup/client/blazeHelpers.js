@@ -1,6 +1,7 @@
 import { Blaze } from 'meteor/blaze';
 import { _ } from 'meteor/underscore';
 import { Session } from 'meteor/session';
+import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 import { Filter } from '/imports/ui/components/utils/filter';
 import { Modal } from '/imports/ui/components/utils/modal';
@@ -11,6 +12,11 @@ import { Boards } from '/imports/api/models/boards';
 import { Cards } from '/imports/api/models/cards';
 import { Utils } from '/imports/ui/lib/utils';
 import { Users } from '/imports/api/models/users';
+
+
+// By default, BlazeLayout render layouts into a DOM element with the
+// id __blaze-root. We want to just render layouts into the body:
+BlazeLayout.setRoot('body');
 
 
 Blaze.registerHelper('Filter', Filter);
