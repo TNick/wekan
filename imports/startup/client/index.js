@@ -6,6 +6,8 @@ import './accessibility';
 import './windowEvents';
 import './i18n';
 import './blazeHelpers';
+import './gecko-fix';
+import './presence';
 import '/imports/api/statistics';
 
 
