@@ -1,25 +1,7 @@
-import { Mongo } from 'meteor/mongo';
-import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { ChecklistItems } from './schema';
+import './helpers';
+import './methods';
+import './mutations';
+import './hooks';
 
-export const ChecklistItems = new Mongo.Collection('checklistItems');
-
-ChecklistItems.attachSchema(new SimpleSchema({
-  title: {
-    type: String,
-  },
-  sort: {
-    type: Number,
-    decimal: true,
-  },
-  isFinished: {
-    type: Boolean,
-    defaultValue: false,
-  },
-  checklistId: {
-    type: String,
-  },
-  cardId: {
-    type: String,
-  },
-}));
-
+export { ChecklistItems };

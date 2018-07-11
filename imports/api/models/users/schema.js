@@ -131,7 +131,6 @@ Users.attachSchema(new SimpleSchema({
   },
 }));
 
-
 // ----------------------------[   Alow / Deny   ]----------------------------
 
 /// TODO: remove in favor of methods
