@@ -17,7 +17,7 @@ import { Cards } from '/imports/api/models/cards';
 import { Swimlanes } from '/imports/api/models/swimlanes';
 import { Activities } from '/imports/api/models/activities';
 import { Migrations } from '/imports/api/startup/server/migrations';
-import '/imports/blazeHelpers/sandstorm';
+
 
 // In sandstorm we only have one board per sandstorm instance. Since we want to
 // keep most of our code unchanged, we simply hard-code a board `_id` and
