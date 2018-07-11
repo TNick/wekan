@@ -4,7 +4,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import { Boards } from '../boards';
 import { Cards } from '../cards';
-import { allowIsBoardMemberNonComment } from '/imports/api/utils/server/utils';
+import { allowIsBoardMemberNonComment } from '/imports/api/utils';
 
 
 export const Swimlanes = new Mongo.Collection('swimlanes');

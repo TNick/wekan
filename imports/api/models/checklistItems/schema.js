@@ -3,7 +3,7 @@ import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import { Cards } from '/imports/api/models/cards';
-import { allowIsBoardMemberByCard } from '/imports/api/utils/server/utils';
+import { allowIsBoardMemberByCard } from '/imports/api/utils';
 
 
 export const ChecklistItems = new Mongo.Collection('checklistItems');

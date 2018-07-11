@@ -4,7 +4,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Match } from 'meteor/check';
 
 import { Boards } from '../boards';
-import { allowIsBoardMember } from '/imports/api/utils/server/utils';
+import { allowIsBoardMember } from '/imports/api/utils';
 
 
 export const Cards = new Mongo.Collection('cards');

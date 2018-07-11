@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { FS } from 'meteor/cfs:base-package';
 
-import { allowIsBoardMember } from '/imports/api/utils/server/utils';
+import { allowIsBoardMember } from '/imports/api/utils';
 import { Boards } from '/imports/api/models/boards';
 
 

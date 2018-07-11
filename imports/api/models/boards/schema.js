@@ -4,7 +4,7 @@ import { Random } from 'meteor/random';
 import { getSlug } from 'meteor/ongoworks:speakingurl';
 import { _ } from 'meteor/underscore';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
-import { allowIsBoardAdmin } from '/imports/api/utils/server/utils';
+import { allowIsBoardAdmin } from '/imports/api/utils';
 
 
 export const Boards = new Mongo.Collection('boards');

@@ -5,7 +5,7 @@ import { _ } from 'meteor/underscore';
 
 import { Cards } from '/imports/api/models/cards';
 import { ChecklistItems } from '../checklistItems';
-import { allowIsBoardMemberByCard } from '/imports/api/utils/server/utils';
+import { allowIsBoardMemberByCard } from '/imports/api/utils';
 
 
 export const Checklists = new Mongo.Collection('checklists');

@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-import { allowIsBoardMemberNonComment } from '/imports/api/utils/server/utils';
+import { allowIsBoardMemberNonComment } from '/imports/api/utils';
 import { Boards } from '/imports/api/models/boards';
 
 
