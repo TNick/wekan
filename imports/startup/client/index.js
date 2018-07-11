@@ -4,6 +4,7 @@ import './useraccounts-configuration';
 import './routes';
 import './accessibility';
 import './windowEvents';
+import './i18n';
 import '/imports/api/statistics';
 
 
