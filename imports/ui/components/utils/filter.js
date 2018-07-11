@@ -1,5 +1,4 @@
 import { Tracker } from 'meteor/tracker';
-import { Blaze } from 'meteor/blaze';
 import { _ } from 'meteor/underscore';
 
 // TODO: import { Sidebar } from ''
@@ -504,5 +503,3 @@ export const Filter = {
     this._exceptionsDep.changed();
   },
 };
-
-Blaze.registerHelper('Filter', Filter);

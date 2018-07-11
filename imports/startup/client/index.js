@@ -5,6 +5,7 @@ import './routes';
 import './accessibility';
 import './windowEvents';
 import './i18n';
+import './blazeHelpers';
 import '/imports/api/statistics';
 
 

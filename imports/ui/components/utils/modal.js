@@ -1,6 +1,5 @@
 import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { Blaze } from 'meteor/blaze';
 import { EscapeActions } from '/imports/ui/lib/escapeActions';
 
 
@@ -38,8 +37,6 @@ export const Modal = new class {
     this._onCloseGoTo = onCloseGoTo;
   }
 }();
-
-Blaze.registerHelper('Modal', Modal);
 
 EscapeActions.register('modalWindow',
   () => Modal.close(),
