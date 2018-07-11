@@ -1,4 +1,4 @@
-import { ChecklistItems } from '/checklistItems';
+import { ChecklistItems } from './schema';
 
 import { Activities } from '/imports/api/models/activities';
 import { Cards } from '/imports/api/models/cards';
