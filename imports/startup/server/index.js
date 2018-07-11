@@ -20,16 +20,9 @@ import '/imports/api/models/activities/server/publications';
 import '/imports/api/models/announcements/server/publications';
 import '/imports/api/models/avatars/server/publications';
 import '/imports/api/models/boards/server/publications';
-import '/imports/api/models/cardComments/server/publications';
 import '/imports/api/models/cards/server/publications';
-import '/imports/api/models/checklistItems/server/publications';
-import '/imports/api/models/checklists/server/publications';
 import '/imports/api/models/customFields/server/publications';
-import '/imports/api/models/integrations/server/publications';
-import '/imports/api/models/invitationCodes/server/publications';
-import '/imports/api/models/lists/server/publications';
 import '/imports/api/models/settings/server/publications';
-import '/imports/api/models/swimlanes/server/publications';
 import '/imports/api/models/unsavedEdits/server/publications';
 import '/imports/api/models/users/server/publications';
 

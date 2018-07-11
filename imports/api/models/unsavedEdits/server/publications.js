@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { UnsavedEditCollection } from '/imports/api/models/unsavedEditCollection';
+import { UnsavedEditCollection } from '/imports/api/models/unsavedEdits';
 
 Meteor.publish('unsaved-edits', function() {
   return UnsavedEditCollection.find({
