@@ -1,0 +1,15 @@
+a.member.js-member(title="{{userData.profile.fullname}} ({{userData.username}})")
+  if userData.profile.avatarUrl
+    img.avatar.avatar-image(src=userData.profile.avatarUrl)
+  else
+    +userAvatarInitials(userId=userData._id)
+
+  if showStatus
+    span.member-presence-status(class=presenceStatusClassName)
+    span.member-type(class=memberType)
+
+  unless isSandstorm
+    if showEdit
+      if $eq currentUser._id userData._id
+        a.edit-avatar.js-change-avatar
+          i.fa.fa-pencil

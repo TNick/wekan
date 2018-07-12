@@ -9,8 +9,9 @@ import './blazeHelpers';
 import './gecko-fix';
 import './presence';
 import './reactiveTabs';
+import './accounts';
 import '/imports/api/statistics';
 
 
 // prevents annoying error message that there's no path for /
-FlowRouter.wait();
+// FlowRouter.wait();

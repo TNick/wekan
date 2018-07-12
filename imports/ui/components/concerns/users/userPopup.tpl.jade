@@ -1,0 +1,6 @@
+.board-member-menu
+  .mini-profile-info
+    +userAvatar(userId=user._id)
+    .info
+      h3= user.profile.fullname
+      p.quiet @{{ user.username }}

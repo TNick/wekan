@@ -1,0 +1,1 @@
+import './offlineWarning.tpl.jade';

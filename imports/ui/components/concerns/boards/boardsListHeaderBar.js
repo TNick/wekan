@@ -1,0 +1,1 @@
+import './boardsListHeaderBar.tpl.jade';

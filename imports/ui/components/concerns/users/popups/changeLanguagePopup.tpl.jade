@@ -1,0 +1,7 @@
+ul.pop-over-list
+  each languages
+    li(class="{{# if isCurrentLanguage}}active{{/if}}")
+      a.js-set-language
+        = name
+        if isCurrentLanguage
+          i.fa.fa-check

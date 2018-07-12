@@ -5,6 +5,7 @@ import { Match } from 'meteor/check';
 
 import { Boards } from '../boards';
 import { allowIsBoardMember } from '/imports/api/utils';
+import { simpleWatchable } from '/imports/api/utils/watchable';
 
 
 export const Cards = new Mongo.Collection('cards');
@@ -159,3 +160,5 @@ if (Meteor.isServer) {
     Cards._collection._ensureIndex({boardId: 1, createdAt: -1});
   });
 }
+
+simpleWatchable(Cards);

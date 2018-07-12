@@ -1,0 +1,9 @@
+#header-user-bar
+  a.header-user-bar-name.js-open-header-member-menu
+    .header-user-bar-avatar
+      +userAvatar(userId=currentUser._id)
+    unless isMiniScreen
+      if currentUser.profile.fullname
+        = currentUser.profile.fullname
+      else
+        = currentUser.username

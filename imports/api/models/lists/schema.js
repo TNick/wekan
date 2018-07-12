@@ -3,6 +3,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import { allowIsBoardMemberNonComment } from '/imports/api/utils';
 import { Boards } from '/imports/api/models/boards';
+import { simpleWatchable } from '/imports/api/utils/watchable';
 
 
 export const Lists = new Mongo.Collection('lists');
@@ -86,3 +87,4 @@ Lists.allow({
   fetch: ['boardId'],
 });
 
+simpleWatchable(Lists);

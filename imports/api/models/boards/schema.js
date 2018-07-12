@@ -4,7 +4,9 @@ import { Random } from 'meteor/random';
 import { getSlug } from 'meteor/ongoworks:speakingurl';
 import { _ } from 'meteor/underscore';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+
 import { allowIsBoardAdmin } from '/imports/api/utils';
+import { complexWatchable } from '/imports/api/utils/watchable';
 
 
 export const Boards = new Mongo.Collection('boards');
@@ -227,3 +229,5 @@ if (Meteor.isServer) {
     Boards._collection._ensureIndex({ 'members.userId': 1 });
   });
 }
+
+complexWatchable(Boards);
