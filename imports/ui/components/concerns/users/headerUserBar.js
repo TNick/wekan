@@ -2,6 +2,8 @@ import { Template } from 'meteor/templating-runtime';
 
 import { Popup } from '/imports/ui/components/utils/popup';
 import './userAvatar';
+import './popups/memberMenuPopup';
+import './popups/changeAvatarPopup';
 import './headerUserBar.tpl.jade';
 
 

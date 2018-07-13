@@ -31,7 +31,6 @@ FlowRouter.route('/', {
   name: 'home',
   triggersEnter: [AccountsTemplates.ensureSignedIn],
   action() {
-    Meteor._debug('>>>> FlowRouter.route('/')  <<<<');
     Session.set('currentBoard', null);
     Session.set('currentList', null);
     Session.set('currentCard', null);

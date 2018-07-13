@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating-runtime';
 
-import './changePasswordPopup.js';
+import './changePasswordPopup.tpl.jade';
 
 
 // XXX For some reason the useraccounts autofocus isnt working in this case.

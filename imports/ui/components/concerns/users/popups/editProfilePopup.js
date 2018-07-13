@@ -1,17 +1,23 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating-runtime';
-import { AccountSettings } from '/imports/api/models/accountSettings';
 
+import { AccountSettings } from '/imports/api/models/accountSettings';
 import { Users } from '/imports/api/models/users';
 import { Popup } from '/imports/ui/components/utils/popup';
 import './editProfilePopup.tpl.jade';
 
+Template.editProfilePopup.onCreated(() => {
+  Meteor.subscribe('accountSettings');
+});
+
 Template.editProfilePopup.helpers({
   allowEmailChange() {
-    return AccountSettings.findOne('accounts-allowEmailChange').booleanValue;
+    const allowEmailChange = AccountSettings.findOne('accounts-allowEmailChange');
+    return allowEmailChange === undefined ? true : allowEmailChange.booleanValue;
   },
   allowUserNameChange() {
-    return AccountSettings.findOne('accounts-allowUserNameChange').booleanValue;
+    const allowUserNameChange = AccountSettings.findOne('accounts-allowUserNameChange');
+    return allowUserNameChange === undefined ? true : allowUserNameChange.booleanValue;
   },
 });
 

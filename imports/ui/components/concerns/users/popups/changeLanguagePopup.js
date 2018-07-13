@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating-runtime';
 import { TAPi18n } from 'meteor/tap:i18n';
+import { _ } from 'meteor/underscore';
 
 import { Users } from '/imports/api/models/users';
 import './changeLanguagePopup.tpl.jade';

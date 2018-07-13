@@ -6,9 +6,9 @@ import { presences } from 'meteor/3stack:presence';
 import { Popup } from '/imports/ui/components/utils/popup';
 import { Users } from '/imports/api/models/users';
 import './userAvatarInitials';
+import './popups/changeAvatarPopup';
 import './userAvatar.tpl.jade';
 import './userAvatar.styl';
-
 
 Template.userAvatar.helpers({
   userData() {

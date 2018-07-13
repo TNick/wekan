@@ -6,6 +6,7 @@ import { _ } from 'meteor/underscore';
 import { TAPi18n } from 'meteor/tap:i18n';
 import { BlazeComponent } from 'meteor/peerlibrary:blaze-components';
 
+import '/imports/ui/components/common/popupGui';
 import { Utils } from '/imports/ui/lib/utils';
 import { EscapeActions } from '/imports/ui/lib/escapeActions';
 
@@ -13,7 +14,7 @@ import { EscapeActions } from '/imports/ui/lib/escapeActions';
 export const Popup = new class {
   constructor() {
     // The template we use to render popups
-    this.template = Template.popup;
+    this.template = Template.popupGui;
 
     // We only want to display one popup at a time and we keep the view object
     // in this `Popup._current` variable. If there is no popup currently opened

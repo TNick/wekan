@@ -2,6 +2,12 @@ import { Template } from 'meteor/templating-runtime';
 import { AccountsTemplates } from 'meteor/useraccounts:core';
 
 import { Popup } from '/imports/ui/components/utils/popup';
+import './editProfilePopup';
+import './changeSettingsPopup';
+import './changeAvatarPopup';
+import './changePasswordPopup';
+import './changeLanguagePopup';
+import './editNotificationPopup';
 import './memberMenuPopup.tpl.jade';
 
 Template.memberMenuPopup.events({
